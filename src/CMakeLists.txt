@@ -7,7 +7,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(
     HEADERS
 
-    ExportedFunctions.hpp
+    ../include/ExportedFunctions.hpp
 )
 
 set(
@@ -23,11 +23,12 @@ add_library(
     ${SOURCES}
 )
 
+target_include_directories(${PROJECT_NAME} PUBLIC ${HEADERS})
 set_target_properties(${PROJECT_NAME} PROPERTIES DEBUG_POSTFIX "d")
+set_target_properties(${PROJECT_NAME} PROPERTIES PUBLIC_HEADER ${HEADERS})
 
 install(
-    TARGETS
-        ${PROJECT_NAME}
-    DESTINATION
-        ${CMAKE_INSTALL_PREFIX}
+    TARGETS ${PROJECT_NAME}
+    LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
+    PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_PREFIX}/include
 )

@@ -4,5 +4,5 @@
 
 namespace test_lib_for_presentation
 {
-    std::vector<int> getRandomVector();
+    std::vector<int> getRandomNumbers(const std::size_t count);
 }

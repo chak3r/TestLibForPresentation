@@ -5,8 +5,9 @@
 namespace test_lib_for_presentation
 {
 
-std::vector<int> getTenRandomNumbers(const std::size_t size)
+std::vector<int> getRandomNumbers(const std::size_t count)
 {
+    // THISIS COPY OF EXAMPLE FOR CPPREF : https://en.cppreference.com/w/cpp/numeric/random
 
     // Seed with a real random value, if available
     std::random_device r;
@@ -22,9 +23,9 @@ std::vector<int> getTenRandomNumbers(const std::size_t size)
     std::normal_distribution<> normal_dist(mean, 2);
  
     std::vector<int> randomVector;
-    randomVector.reserve(size);    
+    randomVector.reserve(count);
 
-    for (std::size_t n = 0; n < size; ++n) {
+    for (std::size_t n = 0; n < count; ++n) {
         randomVector.emplace_back(std::round(normal_dist(e2)));
     }
 
