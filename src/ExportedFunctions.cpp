@@ -7,7 +7,7 @@ namespace test_lib_for_presentation
 
 std::vector<int> getRandomNumbers(const std::size_t count)
 {
-    // THISIS COPY OF EXAMPLE FOR CPPREF : https://en.cppreference.com/w/cpp/numeric/random
+    // THIS IS COPY OF EXAMPLE FROM CPPREF : https://en.cppreference.com/w/cpp/numeric/random
 
     // Seed with a real random value, if available
     std::random_device r;
@@ -25,8 +25,9 @@ std::vector<int> getRandomNumbers(const std::size_t count)
     std::vector<int> randomVector;
     randomVector.reserve(count);
 
-    for (std::size_t n = 0; n < count; ++n) {
-        randomVector.emplace_back(std::round(normal_dist(e2)));
+    for (std::size_t n = 0; n < count; ++n)
+    {
+        randomVector.emplace_back(std::lround(normal_dist(e2)));
     }
 
     return randomVector;
